@@ -22,11 +22,10 @@ class BertClassifier(nn.Module):
                 
     def forward(self, input_ids, attention_mask, ind1, ind2):
         """ Classify relationship given two entities
-        @param    data (np.array): Array of texts to be processed
-                  input_ids (torch.Tensor): Tensor of token ids to be fed to a model
-                  attention_masks (torch.Tensor): Tensor of indices specifying which tokens should be attended to by the model
-                  ind1 (torch.Tensor):
-                  ind2 (torch.Tensor): 
+        @param    input_ids (torch.Tensor): Tensor of token ids to be fed to a model
+                  attention_mask (torch.Tensor): Tensor of indices specifying which tokens should be attended to by the model
+                  ind1 (torch.Tensor): Tensor of token ids indicating the first entity of a pair of which relationship the model predicts
+                  ind2 (torch.Tensor): Tensor of token ids indicating the second entity of a pair of which relationship the model predicts
         """
         outputs = self.bert(input_ids = input_ids,
                  attention_mask = attention_mask)
